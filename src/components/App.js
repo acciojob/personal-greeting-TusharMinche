@@ -1,18 +1,17 @@
-import React, { useState } from "react";
 import './../styles/App.css';
+import React, { useState } from "react";
 
 const App = () => {
-  const [name, setName] = useState('');
-
-  const handleInput = (e) => {
-    setName(e.target.value);
-  };
+  const [name, setName] = useState("");
 
   return (
     <div>
-      <label htmlFor="username">Enter your name:</label>
-      <input id="username" type="text" onChange={handleInput} />
-      <p>{name ? `Hello, ${name}!` : ''}</p>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      {name && <p>Hello {name}!</p>}
     </div>
   );
 };
